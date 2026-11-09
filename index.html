@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#171715">
+<title>BODY RESET | Stronger every day</title>
+<style>
+:root {
+  --dark:#171715;
+  --cream:#f7f4ee;
+  --pink:#d9b9b5;
+  --muted:#8b8881;
+  --white:#fff;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  background:var(--cream);
+  color:var(--dark);
+  font-family:Arial,sans-serif;
+}
+header {
+  background:var(--dark);
+  color:white;
+  padding:25px 22px 32px;
+}
+.brand {
+  letter-spacing:4px;
+  font-size:13px;
+  font-weight:bold;
+}
+.brand span { color:var(--pink); }
+header h1 {
+  font-size:30px;
+  line-height:1.15;
+  margin:35px 0 8px;
+}
+header p { color:#c8c4bc; font-size:14px; }
+main {
+  max-width:650px;
+  margin:auto;
+  padding:22px;
+  padding-bottom:95px;
+}
+.eyebrow {
+  color:var(--muted);
+  font-size:11px;
+  letter-spacing:2px;
+  font-weight:bold;
+}
+h2 { font-size:22px; margin:9px 0 18px; }
+.card {
+  background:white;
+  padding:20px;
+  border-radius:16px;
+  margin-bottom:17px;
+}
+.feature {
+  background:#e9ddd7;
+  padding:24px;
+  border-radius:18px;
+  margin:20px 0;
+}
+.feature h2 { font-size:25px; }
+button {
+  border:0;
+  cursor:pointer;
+  padding:14px 20px;
+  border-radius:8px;
+  background:var(--dark);
+  color:white;
+  font-weight:bold;
+}
+button:active { opacity:.7; }
+.full { width:100%; }
+.stats {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.stat strong {
+  display:block;
+  font-size:27px;
+  margin:8px 0;
+}
+.stat small { color:var(--muted); }
+.progress {
+  background:#e9e5de;
+  height:8px;
+  border-radius:20px;
+  margin:14px 0;
+  overflow:hidden;
+}
+.progress div {
+  height:100%;
+  width:40%;
+  background:#b58f88;
+}
+.exercise {
+  display:flex;
+  justify-content:space-between;
+  padding:15px 0;
+  border-bottom:1px solid #eeeae3;
+  font-size:14px;
+}
+nav {
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:white;
+  display:flex;
+  justify-content:space-around;
+  padding:14px 4px;
+  box-shadow:0 -3px 15px #00000010;
+}
+nav button {
+  background:transparent;
+  color:#777;
+  padding:7px 5px;
+  font-size:11px;
+}
+nav button.active { color:#171715; }
+.page { display:none; }
+.page.active { display:block; }
+.muted { color:var(--muted); font-size:13px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">BODY <span>RESET</span></div>
+  <h1>STRONGER<br>EVERY DAY.</h1>
+  <p>Il tuo percorso. Il tuo corpo. La tua evoluzione.</p>
+</header>
+
+<main>
+  <section id="home" class="page active">
+    <div class="eyebrow">IL TUO SPAZIO PERSONALE</div>
+    <h2>Benvenuta in BODY RESET.</h2>
+    <p class="muted">Ogni piccolo passo conta. Iniziamo oggi.</p>
+
+    <div class="feature">
+      <div class="eyebrow">IL TUO ALLENAMENTO</div>
+      <h2>Full Body Reset</h2>
+      <p>Un allenamento completo per iniziare il tuo percorso.</p>
+      <button onclick="showPage('workout')">SCOPRI L'ALLENAMENTO →</button>
+    </div>
+
+    <div class="eyebrow">IL TUO PROGRESSO</div>
+    <div class="stats">
+      <div class="card stat">
+        <small>Allenamenti</small>
+        <strong id="count">0</strong>
+        <small>Completati</small>
+      </div>
+      <div class="card stat">
+        <small>Obiettivo</small>
+        <strong>3</strong>
+        <small>Sessioni settimanali</small>
+      </div>
+    </div>
+
+    <div class="card">
+      <strong>La tua costanza</strong>
+      <div class="progress"><div></div></div>
+      <p class="muted">Il tuo percorso inizia da qui.</p>
+    </div>
+  </section>
+
+  <section id="workout" class="page">
+    <div class="eyebrow">ALLENAMENTO</div>
+    <h2>Full Body Reset</h2>
+    <p class="muted">Esempio di sessione dimostrativa.</p>
+    <div class="card">
+      <div class="exercise"><span>Squat a corpo libero</span><b>3 × 12</b></div>
+      <div class="exercise"><span>Push-up adattati</span><b>3 × 8</b></div>
+      <div class="exercise"><span>Glute bridge</span><b>3 × 15</b></div>
+      <div class="exercise"><span>Bird dog</span><b>2 × 10</b></div>
+      <p class="muted">Esercizi dimostrativi da validare prima dell'uso come programma individuale.</p>
+      <button class="full" onclick="completeWorkout()">COMPLETA SESSIONE</button>
+    </div>
+  </section>
+
+  <section id="progress" class="page">
+    <div class="eyebrow">IL TUO PERCORSO</div>
+    <h2>I tuoi progressi.</h2>
+    <div class="card">
+      <div class="eyebrow">SESSIONI COMPLETATE</div>
+      <h2 id="progressCount">0</h2>
+      <p class="muted">Ogni allenamento è un passo avanti.</p>
+    </div>
+  </section>
+
+  <section id="profile" class="page">
+    <div class="eyebrow">AREA PERSONALE</div>
+    <h2>Il mio profilo.</h2>
+    <div class="card">
+      <p><b>BODY RESET</b></p>
+      <p class="muted">Il tuo spazio per allenarti e migliorare.</p>
+      <p>Versione demo 1.0</p>
+      <p class="muted">Nessun abbonamento attivo.</p>
+    </div>
+  </section>
+</main>
+
+<nav>
+  <button class="active" onclick="showPage('home',this)">HOME</button>
+  <button onclick="showPage('workout',this)">WORKOUT</button>
+  <button onclick="showPage('progress',this)">PROGRESSI</button>
+  <button onclick="showPage('profile',this)">PROFILO</button>
+</nav>
+
+<script>
+let completed = 0;
+
+function showPage(id,button) {
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  if(button) button.classList.add('active');
+  else document.querySelectorAll('nav button')[0].classList.toggle('active',id==='home');
+}
+
+function completeWorkout() {
+  completed++;
+  document.getElementById('count').textContent=completed;
+  document.getElementById('progressCount').textContent=completed;
+  alert('Allenamento completato! Ottimo lavoro!');
+}
+</script>
+</body>
+</html>
